@@ -1,0 +1,135 @@
+.progressbar {
+  width: fit-content;
+  height: fit-content;
+
+  z-index: 1000;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  position: fixed;
+  top: 20%;
+  left: 1%;
+}
+
+.startFont {
+  font-family: "jetbrains mono", monospace;
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--accent-color);
+}
+
+.progressDivider {
+  width: 40px;
+  height: 2px;
+  background: var(--accent-color);
+  margin: 10px 0 20px 0;
+}
+
+.timeLineFitter {
+  position: relative;
+  height: 50vh;
+}
+
+.pointHome,
+.pointSkills,
+.pointAbout,
+.pointProjects,
+.pointContact {
+  position: absolute;
+
+  z-index: 1000;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+}
+
+.pointHome {
+  top: 0%;
+  left: -6px;
+}
+
+.pointSkills {
+  top: 25%;
+  left: -6px;
+}
+
+.pointAbout {
+  top: 50%;
+  left: -6px;
+}
+
+.pointProjects {
+  top: 75%;
+  left: -6px;
+}
+
+.pointContact {
+  top: 99%;
+  left: -6px;
+}
+
+.point {
+  width: 14px;
+  height: 14px;
+  background: var(--accent-color);
+  border-radius: 7px;
+}
+
+.pointHome {
+  font-family: "jetbrains mono", monospace;
+  font-size: 10px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: var(--accent-color);
+}
+
+.pointSkills span,
+.pointAbout span,
+.pointProjects span,
+.pointContact span {
+  font-family: "jetbrains mono", monospace;
+  font-size: 10px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: var(--accent-color);
+}
+
+.timeLine {
+  width: 2px;
+  height: 50vh;
+  background: var(--muted-color);
+}
+
+#line-home {
+  position: absolute;
+  top: 0;
+  width: 2px;
+  height: 0;
+  background: var(--accent-color);
+}
+
+#line-skills {
+  position: absolute;
+  top: 25%;
+  width: 2px;
+  height: 0;
+  background: var(--accent-color);
+}
+#line-about {
+  position: absolute;
+  top: 50%;
+  width: 2px;
+  height: 0;
+  background: var(--accent-color);
+}
+#line-projects {
+  position: absolute;
+  top: 75%;
+  width: 2px;
+  height: 0;
+  background: var(--accent-color);
+}

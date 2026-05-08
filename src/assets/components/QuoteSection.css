@@ -1,0 +1,45 @@
+.quoteSection {
+  position: relative;
+  height: fit-content;
+  width: 100%;
+  background: var(--bg-main-color);
+  padding: 200px 0px 250px 0px;
+}
+
+.quoteMask {
+  margin-left: 8%;
+  overflow: hidden;
+}
+
+.quoteMask span {
+  display: inline-block;
+  transform: translateY(200%);
+  transition: transform 0.7s ease-out;
+}
+
+.quoteMask.show span {
+  transform: translateY(0%);
+}
+
+.quote {
+  font-family: "inter", sans-serif;
+  font-size: 90px;
+  font-weight: 700;
+  color: var(--text-muted-color);
+  justify-self: center;
+  margin-right: 40px;
+}
+
+.quote.show {
+  transform: translateY(0);
+}
+
+.quote strong {
+  color: var(--text-main-color);
+  font-weight: 700;
+}
+
+.quote em {
+  color: var(--accent-color);
+  font-weight: 700;
+}

@@ -1,0 +1,163 @@
+.aboutSection {
+  background: var(--bg-main-color);
+  height: 1080px;
+  border-top: 1px solid var(--muted-color);
+}
+
+.content {
+  margin-top: 50px;
+  display: flex;
+  height: 80%;
+  gap: 50px;
+  justify-content: center;
+}
+.img-card {
+  width: 500px;
+  height: 830px;
+
+  border: 1px solid #868686;
+  border-radius: 2em;
+  overflow: hidden;
+}
+
+.img-card img {
+  margin-left: -10%;
+  width: 130%;
+  height: auto;
+}
+
+.about-card {
+  width: 700px;
+  height: 80%;
+  border-radius: 2em;
+  padding: 32px;
+  background: rgba(255, 255, 255, 0.01);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(255, 255, 255, 0.06);
+
+  position: relative;
+  overflow: hidden;
+}
+
+.about-card::before,
+.about-card::after {
+  content: "";
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+.about-card::before {
+  top: -40px;
+  left: -40px;
+  background: rgba(76, 175, 80, 0.08);
+}
+
+.about-card::after {
+  bottom: -40px;
+  right: -40px;
+  background: rgba(76, 175, 80, 0.12);
+}
+
+.line {
+  width: 100px;
+  height: 2px;
+  background: var(--accent-color);
+  margin: 20px 0;
+}
+
+.about-card span {
+  font-family: "jetbrains mono", monospace;
+  font-weight: 100;
+  font-size: 56px;
+  color: var(--text-main-color);
+}
+
+.about-card em {
+  font-family: "jetbrains mono", monospace;
+  font-weight: 500;
+  font-size: 56px;
+  color: var(--accent-color);
+  font-style: normal;
+}
+
+.about-card p {
+  font-family: "jetbrains mono", monospace;
+  font-size: 19px;
+  font-weight: 400;
+  color: var(--text-muted-color);
+}
+
+.about-card strong {
+  color: var(--text-main-color);
+}
+
+.formula-btn {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.formula-btn img {
+  width: 30px;
+  height: 30px;
+}
+
+.formula-btn span {
+  font-family: "jetbrains mono", monospace;
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--text-muted-color);
+}
+
+.formula-btn button {
+  font-family: "jetbrains mono", monospace;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-muted-color);
+
+  width: fit-content;
+  height: 50px;
+  background: none;
+  border: 1px solid var(--accent-color);
+  border-radius: 2em;
+  cursor: pointer;
+  display: flex;
+  gap: 10px;
+  padding: 20px;
+  transition: all 0.5s ease;
+}
+
+.formula-btn button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.imgBase {
+  width: 20px;
+  height: 20px;
+}
+
+.imgShow {
+  width: 20px;
+  height: 20px;
+  opacity: 0;
+  margin-left: -30px;
+  transition: opacity 0.3s ease;
+}
+
+.formula-btn button:hover {
+  color: var(--text-main-color);
+  .imgShow {
+    opacity: 1;
+  }
+}

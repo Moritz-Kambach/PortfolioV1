@@ -1,0 +1,51 @@
+body {
+  margin: 0;
+  height: 100%;
+  scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+:root {
+  --bg-main-color: #02080b;
+
+  --text-main-color: #ffffff;
+  --text-muted-color: #868686;
+
+  --accent-color: #90c370;
+  --muted-color: #868686;
+}
+
+::selection {
+  background: var(--accent-color);
+  color: black;
+}
+
+.sectionHeadInfo {
+  font-family: "jetbrains mono", monospace;
+  text-transform: uppercase;
+  font-size: 20px;
+  color: var(--accent-color);
+  text-align: center;
+  padding-top: 50px;
+}
+
+.sectionHeadline {
+  font-size: 80px;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 70px;
+}
+
+.headlineFitter {
+  font-family: "inter", sans-serif;
+  color: var(--accent-color);
+}
+
+.headlineContent {
+  font-family: "jetbrains mono", monospace;
+  font-weight: 700;
+  color: var(--text-main-color);
+}

@@ -1,0 +1,98 @@
+.heroSection {
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  pointer-events: none;
+}
+
+.nameContainer {
+  top: 30%;
+  left: 13%;
+  width: fit-content;
+  height: fit-content;
+  position: absolute;
+  font-family: "jetbrains mono", monospace;
+}
+
+.greeting {
+  margin: 0;
+  padding-left: 20px;
+  font-size: 36px;
+  color: var(--text-muted-color);
+}
+
+.name {
+  margin: 0;
+  font-size: 96px;
+  font-weight: 500;
+  color: var(--text-main-color);
+}
+
+.nameDivider {
+  width: 100px;
+  height: 2px;
+  margin-left: 20px;
+
+  background: var(--accent-color);
+}
+
+.txt {
+  padding-left: 20px;
+
+  width: 400px;
+  font-size: 24px;
+  color: var(--text-muted-color);
+}
+
+.scroll {
+  position: absolute;
+  top: 80%;
+  left: 17%;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  font-family: "jetbrains mono", monospace;
+  color: var(--text-muted-color);
+}
+
+.scrollImg {
+  width: 28px;
+  animation: ArrowJump 2s infinite;
+}
+
+.scrollSpan {
+  font-size: 20px;
+}
+
+@keyframes ArrowJump {
+  0% {
+    transform: translateY(0);
+  }
+
+  20% {
+    transform: translateY(10px);
+  }
+
+  40% {
+    transform: translateY(0);
+  }
+
+  60% {
+    transform: translateY(10px);
+  }
+
+  80% {
+    transform: translateY(0);
+  }
+}
