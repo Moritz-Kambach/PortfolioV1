@@ -55,6 +55,7 @@ function SkillSection() {
         background: `url(${TopoBG})`,
         backgroundSize: "50%",
         backgroundRepeat: "repeat",
+        backgroundColor: "#02080b",
       }}
       id="skillsSection"
     >
