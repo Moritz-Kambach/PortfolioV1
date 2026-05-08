@@ -16,17 +16,17 @@ function QuoteSection() {
             // sofort
             setTimeout(() => {
               bottom?.classList.add("show");
-            }, 200);
+            }, 100);
 
             // nach 100ms
             setTimeout(() => {
               middle?.classList.add("show");
-            }, 300);
+            }, 200);
 
             // nach 200ms
             setTimeout(() => {
               top?.classList.add("show");
-            }, 400);
+            }, 300);
           }
         });
       },

@@ -93,7 +93,7 @@
   gap: 12px;
 }
 
-.tags span {
+.tag {
   padding: 10px 18px;
   border-radius: 16px;
 
@@ -106,15 +106,19 @@
 
   backdrop-filter: blur(10px);
 
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
   cursor: default;
 
   transition: all 0.25s ease;
-}
 
-.tags span:hover {
-  transform: translateY(-2px);
-  background: rgba(255, 255, 255, 0.06);
-  color: var(--text-main-color);
+  &:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--text-main-color);
+  }
 }
 
 .skill-card:nth-child(1) {

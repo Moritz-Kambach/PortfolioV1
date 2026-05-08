@@ -72,7 +72,7 @@
   padding: 0 5%;
 
   border-top: 2px solid var(--muted-color);
-  border-bottom: 2px solid var(--muted-color);
+  border-bottom: 1px solid var(--muted-color);
 
   margin-top: -5px;
 }
@@ -101,7 +101,7 @@
   width: 90%;
   height: fit-content;
   margin-left: 5%;
-  margin-top: 5px;
+  margin-top: 6px;
 
   display: flex;
   justify-content: start;
@@ -119,10 +119,19 @@
   color: var(--text-muted-color);
   font-family: "jetbrains mono", monospace;
   font-size: 15px;
+  font-weight: 500;
 
   backdrop-filter: blur(10px);
+
+  display: flex;
+  align-items: center;
+  gap: 5px;
 
   cursor: default;
 
   transition: all 0.25s ease;
+}
+
+.projectTool svg {
+  color: var(--muted-color);
 }
