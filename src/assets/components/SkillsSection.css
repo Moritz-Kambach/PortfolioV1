@@ -27,11 +27,12 @@
   background: rgba(15, 15, 15, 0.6);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
-  isolation: isolate;
 
   border: 1px solid rgba(255, 255, 255, 0.06);
 
   position: relative;
+  overflow: hidden;
+  z-index: 100;
 
   opacity: 0;
   transform: translateY(40px);
