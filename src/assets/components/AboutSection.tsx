@@ -2,7 +2,7 @@ import "./AboutSection.css";
 
 import { useEffect, useRef, useState } from "react";
 
-import Me from "../Me.jpeg";
+import Me from "../me.jpeg";
 import ArrowMutedColor from "../pfeil.png";
 import ArrowMainColor from "../pfeil-main-color.png";
 
