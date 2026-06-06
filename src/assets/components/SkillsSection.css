@@ -6,12 +6,11 @@
 
 .skills {
   display: flex;
-  gap: 50px;
+  justify-self: center;
   justify-content: space-around;
   align-items: center;
   height: auto;
   width: 90%;
-  margin-left: 10%;
 }
 
 .skillImg {
@@ -22,7 +21,7 @@
   width: 270px;
   height: 350px;
   padding: 32px;
-  border-radius: 2em;
+  border-radius: 15px;
 
   background: #050b0e;
 
@@ -35,29 +34,6 @@
   opacity: 0;
   transform: translateY(40px);
   transition: all 0.6s ease-out;
-}
-
-.skill-card::before,
-.skill-card::after {
-  content: "";
-  position: absolute;
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  filter: blur(40px);
-  pointer-events: none;
-}
-
-.skill-card::before {
-  top: -40px;
-  left: -40px;
-  background: rgba(76, 175, 80, 0.08);
-}
-
-.skill-card::after {
-  bottom: -40px;
-  right: -40px;
-  background: rgba(76, 175, 80, 0.12);
 }
 
 .skill-card.show {

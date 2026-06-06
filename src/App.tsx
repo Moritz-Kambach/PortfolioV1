@@ -64,7 +64,7 @@ function App() {
 
   return (
     <>
-      <ProgressNav />
+      {/* <ProgressNav /> */}
       <div id="home">
         <HeroSection />
         <QuoteSection />
