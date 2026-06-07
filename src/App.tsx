@@ -8,7 +8,6 @@ import SkillSection from "./assets/components/SkillsSection";
 import AboutSection from "./assets/components/AboutSection";
 import ProjectsSection from "./assets/components/ProjectsSection";
 import ContactSection from "./assets/components/ContactSection";
-import ProgressNav from "./assets/components/ProgressNav";
 import FooterSection from "./assets/components/FooterSection";
 
 function App() {
