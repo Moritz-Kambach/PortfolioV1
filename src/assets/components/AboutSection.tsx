@@ -3,8 +3,6 @@ import "./AboutSection.css";
 import { useEffect, useRef, useState } from "react";
 
 import Me from "../me.png";
-import ArrowMutedColor from "../pfeil.png";
-import ArrowMainColor from "../pfeil-main-color.png";
 
 function AboutSection() {
   function moveToContact() {
@@ -71,7 +69,6 @@ function AboutSection() {
               transform: `translateX(${cardTranslateX}px)`,
             }}
           >
-            <div className="line"></div>
             <span>
               Nice to meet <em>You</em>!
             </span>
@@ -109,10 +106,21 @@ function AboutSection() {
             <span>Was I able to convince you?</span>
             <button onClick={moveToContact}>
               Let's work together
-              <div className="imgWrapper">
-                <img className="imgBase" src={ArrowMutedColor}></img>
-                <img className="imgShow" src={ArrowMainColor}></img>
-              </div>
+              <svg
+                width="25px"
+                height="25px"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="24" height="24" fill="none" />
+                <path
+                  d="M6 12H18M18 12L13 7M18 12L13 17"
+                  stroke="white"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>{" "}
             </button>
           </div>
         </div>

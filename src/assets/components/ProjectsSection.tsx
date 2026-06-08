@@ -1,19 +1,53 @@
 import "./ProjectsSection.css";
 
+import ArrowDown from "../icons/pfeil-nach-unten.png";
+
+import ImgProj1_1 from "../projects/Shopping_MainScreen.png";
+import ImgProj1_2 from "../projects/CouponFunction.png";
+
+import ImgProj2_1 from "../projects/HomeScreen_AllScreensToghether.png";
+import ImgProj2_2 from "../projects/CurrentWeather_AllScreensToghether.png";
+
+// import ImgProj3_1 from "";
+// import ImgProj3_2 from "";
+// import ImgProj3_3 from "";
+
+import { ImageSlider } from "./ImageSlider";
+
+const project1Images = [ImgProj1_1, ImgProj1_2];
+const project2Images = [ImgProj2_1, ImgProj2_2];
+// const project3Images = [ImgProj3_1, ImgProj3_2, ImgProj3_3];
+
 function ProjectsSection() {
+  function handleProjectClick(clickedProject: number) {
+    const projects = [1, 2, 3];
+
+    projects.forEach((num) => {
+      const project = document.querySelector(`.project${num}`);
+      const content = document.querySelector(`.project${num} .projectContent`);
+      const line = document.querySelector(`.project${num} .projectLineImg`);
+
+      if (num === clickedProject) {
+        project?.classList.add("active");
+        content?.classList.add("active");
+        line?.classList.add("active");
+      } else {
+        project?.classList.remove("active");
+        content?.classList.remove("active");
+        line?.classList.remove("active");
+      }
+    });
+  }
+
   return (
     <section className="projectsSection" id="skillsSection">
       <div className="sectionHeadInfo">Projects</div>
-      {/* <div className="sectionHeadline">
-        <span className="headlineFitter">&lt;</span>{" "}
-        <span className="headlineContent">Selected Projects</span>{" "}
-        <span className="headlineFitter">/&gt;</span>
-      </div> */}
+
       <div className="projects">
-        <div className="project1">
+        <div className="project1" onClick={() => handleProjectClick(1)}>
           <div className="projectWrapper">
             <div className="titleInformation">
-              <div className="projectInfo">project 1</div>
+              <div className="projectInfo">Project 1</div>
               <div className="projectName">Checkout Screen</div>
             </div>
             <div className="tools">
@@ -110,13 +144,23 @@ function ProjectsSection() {
               </div>
             </div>
           </div>
-          <div className="projectLine" />
+
+          <div className="projectContent">
+            <div className="imgSlider">
+              <ImageSlider imageUrls={project1Images} />
+            </div>
+            <div className="imgDescription"></div>
+          </div>
+
+          <div className="projectLine" style={{ position: "relative" }}>
+            <img src={ArrowDown} className="projectLineImg" />
+          </div>
         </div>
 
-        <div className="project2">
+        <div className="project2" onClick={() => handleProjectClick(2)}>
           <div className="projectWrapper">
             <div className="titleInformation">
-              <div className="projectInfo">project 2</div>
+              <div className="projectInfo">Project 2</div>
               <div className="projectName">Weather App</div>
             </div>
             <div className="tools">
@@ -205,13 +249,23 @@ function ProjectsSection() {
               </div>
             </div>
           </div>
-          <div className="projectLine" />
+
+          <div className="projectContent">
+            <div className="imgSlider">
+              <ImageSlider imageUrls={project2Images} />
+            </div>
+            <div className="imgDescription"></div>
+          </div>
+
+          <div className="projectLine" style={{ position: "relative" }}>
+            <img src={ArrowDown} className="projectLineImg" />
+          </div>
         </div>
 
-        <div className="project3">
+        <div className="project3" onClick={() => handleProjectClick(3)}>
           <div className="projectWrapper">
             <div className="titleInformation">
-              <div className="projectInfo">project 3</div>
+              <div className="projectInfo">Project 3</div>
               <div className="projectName">Catflix</div>
             </div>
 
@@ -338,7 +392,16 @@ function ProjectsSection() {
             </div>
           </div>
 
-          <div className="projectLine" />
+          <div className="projectContent">
+            <div className="imgSlider">
+              {/* <ImageSlider imageUrls={project3Images} /> */}
+            </div>
+            <div className="imgDescription"></div>
+          </div>
+
+          <div className="projectLine" style={{ position: "relative" }}>
+            <img src={ArrowDown} className="projectLineImg" />
+          </div>
         </div>
       </div>
     </section>

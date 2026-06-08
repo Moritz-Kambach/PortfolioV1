@@ -52,23 +52,27 @@
 
 .about-card span {
   font-family: "jetbrains mono", monospace;
-  font-weight: 100;
+  text-transform: uppercase;
+
+  font-weight: 200;
   font-size: 56px;
   color: var(--text-main-color);
 }
 
 .about-card em {
   font-family: "jetbrains mono", monospace;
-  font-weight: 500;
+  text-transform: uppercase;
+  font-weight: 600;
   font-size: 56px;
   color: var(--accent-color);
   font-style: normal;
 }
 
 .about-card p {
-  font-family: "jetbrains mono", monospace;
-  font-size: 19px;
-  font-weight: 400;
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  word-spacing: 5px;
   color: var(--text-muted-color);
 }
 
@@ -80,8 +84,6 @@
   margin-top: 20px;
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 20px;
 }
 
 .formula-btn img {
@@ -90,41 +92,51 @@
 }
 
 .formula-btn span {
-  font-family: "jetbrains mono", monospace;
+  font-family: "Inter", sans-serif;
   font-size: 18px;
-  font-weight: 400;
+  font-weight: 300;
   color: var(--text-muted-color);
 }
 
 .formula-btn button {
-  font-family: "jetbrains mono", monospace;
+  width: 40%;
+  height: fit-content;
+
+  padding-right: 10px;
+
+  font-family: "Inter", sans-serif;
   font-size: 20px;
   font-weight: 600;
-  color: var(--text-muted-color);
+  text-align: center;
+  color: var(--text-main-color);
 
-  width: fit-content;
-  height: 50px;
+  border: none;
   background: none;
-  border: 1px solid var(--muted-color);
-  border-radius: 15px;
+  outline: none;
   cursor: pointer;
-  display: flex;
-  gap: 10px;
-  padding: 20px;
-  transition: all 0.2s ease;
 
-  position: relative;
   display: flex;
-  align-items: center;
+  justify-self: center;
+  justify-content: center;
+  gap: 5px;
+
+  transition: all 0.1s ease-in-out;
 
   &:hover {
-    color: var(--text-main-color);
-    border-color: var(--accent-color);
-    transform: scale(1.01);
-    .imgShow {
-      opacity: 1;
+    color: var(--accent-color);
+    path {
+      stroke: var(--accent-color);
+      transform: translateX(5px);
     }
   }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.formula-btn button path {
+  transition: all 0.1s ease;
 }
 
 .imgBase {
