@@ -1,19 +1,29 @@
 .aboutSection {
   background: var(--bg-main-color);
-  height: 1080px;
+  min-height: 100svh; /* vorher: height: 100vh -> fixe Höhe + Row-Layout hätte auf Mobile abgeschnitten/überlaufen */
+  height: auto;
   border-top: 1px solid var(--muted-color);
+  padding: 40px 0;
 }
 
 .content {
   margin-top: 50px;
   display: flex;
-  height: 80%;
+  flex-wrap: wrap; /* verhindert horizontalen Overflow, wenn die feste Breite nicht mehr passt */
+  height: auto; /* vorher: 80% eines vh-Containers -> bricht sobald gestapelt wird */
   gap: 50px;
   justify-content: center;
+  align-items: center;
 }
+
 .img-card {
-  width: 600px;
-  height: 830px;
+  box-sizing: border-box;
+  width: min(
+    600px,
+    90vw
+  ); /* skaliert proportional statt starr bei 600px zu überlaufen */
+  aspect-ratio: 600 / 830; /* ersetzt feste Höhe -> Seitenverhältnis bleibt bei jeder Breite erhalten */
+  height: auto;
 
   border: 1px solid #868686;
   border-radius: 20px;
@@ -27,6 +37,7 @@
 .img-card img {
   width: 100%;
   height: 100%;
+  object-fit: cover; /* verhindert Verzerrung, falls das Bild nicht exakt im Seitenverhältnis ist */
   transition: all 0.5s ease;
 
   &:hover {
@@ -35,8 +46,12 @@
 }
 
 .about-card {
-  width: 700px;
-  height: 80%;
+  box-sizing: border-box;
+  width: min(
+    700px,
+    90vw
+  ); /* vorher fix 700px -> auf Mobile garantiert overflow */
+  height: auto; /* vorher 80% eines vh-Elternteils, funktioniert nicht mehr im column-Layout */
   padding: 32px;
 
   position: relative;
@@ -55,7 +70,11 @@
   text-transform: uppercase;
 
   font-weight: 200;
-  font-size: 56px;
+  font-size: clamp(
+    28px,
+    5vw,
+    56px
+  ); /* vorher starr 56px -> sprengt schmale Screens */
   color: var(--text-main-color);
 }
 
@@ -63,16 +82,16 @@
   font-family: "jetbrains mono", monospace;
   text-transform: uppercase;
   font-weight: 600;
-  font-size: 56px;
+  font-size: clamp(28px, 5vw, 56px);
   color: var(--accent-color);
   font-style: normal;
 }
 
 .about-card p {
   font-family: "Inter", sans-serif;
-  font-size: 20px;
+  font-size: clamp(16px, 2vw, 20px);
   font-weight: 300;
-  word-spacing: 5px;
+  word-spacing: 3px; /* auf Mobile etwas enger, vorher 5px wirkt bei kleiner Schrift zerrissen */
   color: var(--text-muted-color);
 }
 
@@ -99,13 +118,13 @@
 }
 
 .formula-btn button {
-  width: 40%;
+  width: fit-content; /* vorher 40% -> in einer schmalen, gestapelten about-card zu eng für den Text */
   height: fit-content;
 
   padding-right: 10px;
 
   font-family: "Inter", sans-serif;
-  font-size: 20px;
+  font-size: clamp(16px, 2vw, 20px);
   font-weight: 600;
   text-align: center;
   color: var(--text-main-color);
@@ -150,4 +169,65 @@
   opacity: 0;
   margin-left: -30px;
   transition: opacity 0.3s ease;
+}
+
+/* Kein extra Breakpoint hier nötig: width: min(600px/700px, 90vw) skaliert auf jedem normalen
+   Desktop-Monitor bereits korrekt auf die vollen 600px/700px, und flex-wrap (siehe .content)
+   bricht von selbst um, sobald beide Karten + Gap nicht mehr nebeneinander passen. */
+
+/* ---------- Ab hier passt das Row-Layout nicht mehr nebeneinander -> stapeln ---------- */
+@media (max-width: 1024px) {
+  .content {
+    flex-direction: column;
+    margin-top: 30px;
+    gap: 30px;
+  }
+
+  .img-card {
+    width: min(500px, 80vw);
+  }
+
+  .about-card {
+    width: min(600px, 90vw);
+    padding: 24px;
+  }
+}
+
+/* ---------- Mobile: kompaktere Abstände und Schrift ---------- */
+@media (max-width: 768px) {
+  .aboutSection {
+    padding: 30px 0;
+  }
+
+  .img-card {
+    width: 90vw;
+  }
+
+  .about-card {
+    width: 92vw;
+    padding: 20px;
+  }
+
+  .line {
+    width: 70px;
+    margin: 15px 0;
+  }
+
+  .formula-btn {
+    justify-content: flex-start;
+  }
+}
+
+/* ---------- Kleine Phones: Feinschliff ---------- */
+@media (max-width: 420px) {
+  .about-card p {
+    word-spacing: 2px;
+  }
+
+  .formula-btn img,
+  .imgBase,
+  .imgShow {
+    width: 18px;
+    height: 18px;
+  }
 }

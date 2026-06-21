@@ -1,15 +1,17 @@
 .contactSection {
   width: 100%;
-  height: 90vh;
   background: var(--bg-main-color);
   border-top: 1px solid var(--muted-color);
+  padding-bottom: 50px;
 }
+
 .hook {
   width: 100%;
-  height: 200px;
+  height: auto;
+  min-height: 120px;
 
   font-family: "Inter", sans-serif;
-  font-size: 64px;
+  font-size: clamp(40px, 7vw, 80px);
   font-weight: 700;
   color: var(--text-main-color);
 }
@@ -19,14 +21,16 @@
 }
 
 .containerWrapper {
-  width: 80%;
+  width: 75%;
 
   margin-top: 6%;
   margin-bottom: 3%;
 
   display: flex;
+  flex-wrap: wrap;
   justify-self: center;
 
+  gap: 40px;
   justify-content: space-between;
 }
 
@@ -46,7 +50,7 @@
 
 .contactItem {
   font-family: "Inter", sans-serif;
-  font-size: 30px;
+  font-size: clamp(20px, 3vw, 30px);
   font-weight: 400;
   color: var(--text-main-color);
 
@@ -66,7 +70,7 @@
 
 .contactItem span {
   font-family: "Inter", sans-serif;
-  font-size: 22px;
+  font-size: clamp(16px, 2vw, 22px);
   font-weight: 400;
   color: var(--text-main-color);
 }
@@ -78,11 +82,13 @@
   width: 60px;
   height: 60px;
   padding: 15px;
+  flex-shrink: 0;
 }
 
 .contactInfo {
   width: 100%;
-  height: 80%;
+  flex: 1;
+  min-height: 200px;
   border: 1px solid var(--muted-color);
   border-radius: 15px;
   background: rgba(63, 63, 63, 0.3);
@@ -115,6 +121,7 @@
 
 .containerRight input,
 .containerRight textarea {
+  box-sizing: border-box;
   width: 100%;
 
   background: rgba(63, 63, 63, 0.1);
@@ -158,7 +165,7 @@
 }
 
 .contactFormularSubmitButton {
-  width: 20%;
+  width: fit-content;
   height: fit-content;
 
   padding-right: 10px;
@@ -196,4 +203,54 @@
 
 .contactFormularSubmitButton path {
   transition: all 0.1s ease-in-out;
+}
+
+@media (min-width: 1400px) {
+  .contactSection {
+    min-height: 90vh;
+  }
+}
+
+@media (max-width: 1024px) {
+  .containerWrapper {
+    width: 90%;
+  }
+}
+
+@media (max-width: 850px) {
+  .containerWrapper {
+    flex-direction: column;
+    width: 92%;
+    margin-top: 40px;
+  }
+
+  .containerLeft,
+  .containerRight {
+    width: 100%;
+  }
+
+  .containerSpacer {
+    display: none;
+  }
+
+  .contactInfo {
+    min-height: 220px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contactItem img {
+    width: 48px;
+    height: 48px;
+    padding: 12px;
+  }
+
+  .inputGroup textarea {
+    height: 130px;
+  }
+
+  .contactFormularSubmitButton {
+    width: 100%;
+    justify-content: flex-start;
+  }
 }

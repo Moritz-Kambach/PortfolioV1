@@ -1,5 +1,6 @@
 .heroSection {
-  height: 100vh;
+  height: 100svh;
+  max-width: 100%;
   overflow: hidden;
   position: relative;
 }
@@ -9,13 +10,19 @@
   width: 100%;
   height: 100%;
   left: 0;
+  top: 0;
   pointer-events: none;
+
+  object-fit: cover; /* Kernfix: Bild behält sein Seitenverhältnis und wird beschnitten statt gestreckt */
+  object-position: center; /* bei Bedarf anpassen, z.B. "top" oder "center 20%", je nachdem welcher Bildausschnitt wichtig ist */
+  display: block;
 }
 
 .nameContainer {
   top: 30%;
   left: 8%;
   width: fit-content;
+  max-width: 84vw; /* verhindert, dass der Name bei sehr langem Text/kleinem Screen über den Viewport hinausragt */
   height: fit-content;
   position: absolute;
   font-family: "jetbrains mono", monospace;
@@ -24,14 +31,19 @@
 .greeting {
   margin: 0;
   padding-left: 20px;
-  font-size: 36px;
+  font-size: clamp(18px, 3vw, 36px); /* vorher starr 36px */
   color: var(--text-muted-color);
 }
 
 .name {
   margin: 0;
-  font-size: 96px;
+  font-size: clamp(
+    36px,
+    9vw,
+    96px
+  ); /* vorher starr 96px -> hätte auf Mobile garantiert überlappt/überlaufen */
   font-weight: 500;
+  line-height: 1.1;
   color: var(--text-main-color);
 }
 
@@ -46,8 +58,11 @@
 .txt {
   padding-left: 20px;
 
-  width: 400px;
-  font-size: 24px;
+  width: min(
+    400px,
+    75vw
+  ); /* vorher starr 400px -> auf schmalen Screens (z.B. 320-375px) garantierter Overflow */
+  font-size: clamp(15px, 2vw, 24px);
   color: var(--text-muted-color);
 }
 
@@ -94,5 +109,64 @@
 
   80% {
     transform: translateY(0);
+  }
+}
+
+/* ---------- Tablet: Positionen/Größen leicht anpassen ---------- */
+@media (max-width: 1024px) {
+  .nameContainer {
+    top: 40%;
+    left: 6%;
+  }
+
+  .greeting,
+  .txt {
+    color: var(--text-main-color);
+  }
+
+  .scroll {
+    left: 6%;
+  }
+}
+
+/* ---------- Mobile: Text- und Divider-Größen verkleinern, Abstände anpassen ---------- */
+@media (max-width: 768px) {
+  .nameContainer {
+    top: 45%;
+    left: 6%;
+  }
+
+  .greeting,
+  .txt {
+    color: var(--text-main-color);
+  }
+
+  .nameDivider {
+    width: 70px;
+  }
+
+  .scroll {
+    top: 85%;
+    left: 6%;
+  }
+
+  .scrollImg {
+    width: 22px;
+  }
+
+  .scrollSpan {
+    font-size: 16px;
+  }
+}
+
+/* ---------- Kleine Phones: letzter Feinschliff ---------- */
+@media (max-width: 420px) {
+  .greeting,
+  .txt {
+    padding-left: 12px;
+  }
+
+  .nameDivider {
+    margin-left: 12px;
   }
 }
