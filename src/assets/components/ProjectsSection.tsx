@@ -149,7 +149,17 @@ function ProjectsSection() {
             <div className="imgSlider">
               <ImageSlider imageUrls={project1Images} />
             </div>
-            <div className="imgDescription"></div>
+            <div className="imgDescription">
+              <span>
+                A modern checkout experience focused on clarity, usability, and
+                clean visual hierarchy. The project was designed to create a
+                smooth purchasing flow while keeping the interface minimal and
+                distraction-free. It also includes a built-in coupon system and
+                was structured in a way that allows it to be integrated into a
+                larger e-commerce platform or extended into a complete shop
+                experience.
+              </span>
+            </div>
           </div>
 
           <div className="projectLine" style={{ position: "relative" }}>
@@ -254,7 +264,16 @@ function ProjectsSection() {
             <div className="imgSlider">
               <ImageSlider imageUrls={project2Images} />
             </div>
-            <div className="imgDescription"></div>
+            <div className="imgDescription">
+              <span>
+                An interactive weather application that delivers real-time
+                forecasts through a modern and atmospheric interface. Built with
+                React and the OpenWeather API, the app combines functional data
+                handling with a visually engaging design. The focus of this
+                project was creating a balance between accessibility,
+                responsiveness, and an immersive user experience.
+              </span>
+            </div>
           </div>
 
           <div className="projectLine" style={{ position: "relative" }}>
@@ -396,7 +415,9 @@ function ProjectsSection() {
             <div className="imgSlider">
               {/* <ImageSlider imageUrls={project3Images} /> */}
             </div>
-            <div className="imgDescription"></div>
+            <div className="imgDescription">
+              <span>coming soon!</span>
+            </div>
           </div>
 
           <div className="projectLine" style={{ position: "relative" }}>

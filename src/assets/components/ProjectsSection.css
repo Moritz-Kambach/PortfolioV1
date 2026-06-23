@@ -80,7 +80,7 @@
 
 .projectContent.active {
   width: 100%;
-  height: fit-content;
+  height: 600px;
   padding: 20px 0;
 
   opacity: 1;
@@ -100,7 +100,15 @@
 .imgDescription {
   width: 40%;
   aspect-ratio: 16 / 9;
-  border: 1px solid red;
+  display: flex;
+  align-items: center;
+
+  span {
+    font-family: "inter", sans-serif;
+    font-size: clamp(16px, 2vw, 20px);
+    font-weight: 400;
+    color: var(--text-muted-color);
+  }
 }
 
 .projectLine {
@@ -155,6 +163,12 @@
   gap: 5px;
 }
 
+@media (min-width: 2560px) {
+  .projectContent.active {
+    height: 800px;
+  }
+}
+
 @media (max-width: 1024px) {
   .projects {
     width: 90%;
@@ -178,7 +192,7 @@
   .projectContent.active {
     flex-direction: column;
     gap: 20px;
-    height: auto;
+    height: 600px;
     padding: 20px 0;
   }
 
@@ -209,5 +223,9 @@
   .tool {
     font-size: 13px;
     padding: 4px 8px;
+  }
+
+  .projectContent.active {
+    height: 500px;
   }
 }

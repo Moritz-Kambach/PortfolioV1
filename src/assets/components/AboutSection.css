@@ -1,6 +1,6 @@
 .aboutSection {
   background: var(--bg-main-color);
-  min-height: 100svh; /* vorher: height: 100vh -> fixe Höhe + Row-Layout hätte auf Mobile abgeschnitten/überlaufen */
+  min-height: 100svh;
   height: auto;
   border-top: 1px solid var(--muted-color);
   padding: 40px 0;
@@ -9,8 +9,8 @@
 .content {
   margin-top: 50px;
   display: flex;
-  flex-wrap: wrap; /* verhindert horizontalen Overflow, wenn die feste Breite nicht mehr passt */
-  height: auto; /* vorher: 80% eines vh-Containers -> bricht sobald gestapelt wird */
+  flex-wrap: wrap;
+  height: auto;
   gap: 50px;
   justify-content: center;
   align-items: center;
@@ -18,11 +18,8 @@
 
 .img-card {
   box-sizing: border-box;
-  width: min(
-    600px,
-    90vw
-  ); /* skaliert proportional statt starr bei 600px zu überlaufen */
-  aspect-ratio: 600 / 830; /* ersetzt feste Höhe -> Seitenverhältnis bleibt bei jeder Breite erhalten */
+  width: min(600px, 90vw);
+  aspect-ratio: 600 / 830;
   height: auto;
 
   border: 1px solid #868686;
@@ -37,7 +34,7 @@
 .img-card img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* verhindert Verzerrung, falls das Bild nicht exakt im Seitenverhältnis ist */
+  object-fit: cover;
   transition: all 0.5s ease;
 
   &:hover {
@@ -47,11 +44,8 @@
 
 .about-card {
   box-sizing: border-box;
-  width: min(
-    700px,
-    90vw
-  ); /* vorher fix 700px -> auf Mobile garantiert overflow */
-  height: auto; /* vorher 80% eines vh-Elternteils, funktioniert nicht mehr im column-Layout */
+  width: min(700px, 90vw);
+  height: auto;
   padding: 32px;
 
   position: relative;
@@ -70,11 +64,7 @@
   text-transform: uppercase;
 
   font-weight: 200;
-  font-size: clamp(
-    28px,
-    5vw,
-    56px
-  ); /* vorher starr 56px -> sprengt schmale Screens */
+  font-size: clamp(28px, 5vw, 56px);
   color: var(--text-main-color);
 }
 
@@ -91,7 +81,7 @@
   font-family: "Inter", sans-serif;
   font-size: clamp(16px, 2vw, 20px);
   font-weight: 300;
-  word-spacing: 3px; /* auf Mobile etwas enger, vorher 5px wirkt bei kleiner Schrift zerrissen */
+  word-spacing: 3px;
   color: var(--text-muted-color);
 }
 
@@ -103,6 +93,8 @@
   margin-top: 20px;
   display: flex;
   justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
 
 .formula-btn img {
@@ -118,7 +110,7 @@
 }
 
 .formula-btn button {
-  width: fit-content; /* vorher 40% -> in einer schmalen, gestapelten about-card zu eng für den Text */
+  width: fit-content;
   height: fit-content;
 
   padding-right: 10px;
@@ -171,11 +163,6 @@
   transition: opacity 0.3s ease;
 }
 
-/* Kein extra Breakpoint hier nötig: width: min(600px/700px, 90vw) skaliert auf jedem normalen
-   Desktop-Monitor bereits korrekt auf die vollen 600px/700px, und flex-wrap (siehe .content)
-   bricht von selbst um, sobald beide Karten + Gap nicht mehr nebeneinander passen. */
-
-/* ---------- Ab hier passt das Row-Layout nicht mehr nebeneinander -> stapeln ---------- */
 @media (max-width: 1024px) {
   .content {
     flex-direction: column;
@@ -193,7 +180,6 @@
   }
 }
 
-/* ---------- Mobile: kompaktere Abstände und Schrift ---------- */
 @media (max-width: 768px) {
   .aboutSection {
     padding: 30px 0;
@@ -204,6 +190,7 @@
   }
 
   .about-card {
+    text-align: center;
     width: 92vw;
     padding: 20px;
   }
@@ -214,11 +201,13 @@
   }
 
   .formula-btn {
-    justify-content: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
   }
 }
 
-/* ---------- Kleine Phones: Feinschliff ---------- */
 @media (max-width: 420px) {
   .about-card p {
     word-spacing: 2px;
